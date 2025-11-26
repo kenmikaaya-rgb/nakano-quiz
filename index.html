@@ -217,6 +217,16 @@
             display: none;
         }
         
+        .random-badge {
+            display: inline-block;
+            background: #ffa500;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -249,6 +259,7 @@
             <div class="home-screen" id="homeScreen">
                 <h2>  100問チャレンジ</h2>
                 <p>中野区の歴史、観光地、文化、地理について<br>100問のクイズに挑戦しましょう！</p>
+                <span class="random-badge">  ランダム出題</span>
                 <button class="start-btn" onclick="startQuiz()">クイズを開始</button>
                 
                 <div style="margin-top: 30px; text-align: left;">
@@ -261,6 +272,9 @@
                         <li>グルメとイベント</li>
                         <li>交通と施設</li>
                     </ul>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 15px;">
+                        ※ 問題はランダムに出題されます
+                    </p>
                 </div>
             </div>
             
@@ -305,7 +319,7 @@
 
     <script>
         // クイズデータ（中野区について100問）
-        const quizData = [
+        const allQuizData = [
             {
                 question: "中野区の面積は約何平方キロメートルですか？",
                 options: ["12.59km2", "15.59km2", "18.59km2", "21.59km2"],
@@ -878,13 +892,27 @@
             }
         ];
 
+        let quizData = [];
         let currentQuestion = 0;
         let correctAnswers = 0;
         let incorrectAnswers = 0;
         let selectedAnswer = null;
         let isAnswered = false;
 
+        // 配列をシャッフルする関数（Fisher-Yatesアルゴリズム）
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
         function startQuiz() {
+            // 問題をシャッフル
+            quizData = shuffleArray(allQuizData);
+            
             document.getElementById('homeScreen').style.display = 'none';
             document.getElementById('questionContainer').style.display = 'block';
             currentQuestion = 0;
