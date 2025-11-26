@@ -240,19 +240,19 @@
 <body>
     <div class="app-container">
         <div class="header">
-            <h1>🏛️ 中野区クイズ</h1>
+            <h1> ? 中野区クイズ</h1>
             <p>あなたは中野区についてどれだけ知っていますか？</p>
         </div>
         
         <div class="quiz-content">
             <!-- ホーム画面 -->
             <div class="home-screen" id="homeScreen">
-                <h2>📚 100問チャレンジ</h2>
+                <h2>  100問チャレンジ</h2>
                 <p>中野区の歴史、観光地、文化、地理について<br>100問のクイズに挑戦しましょう！</p>
                 <button class="start-btn" onclick="startQuiz()">クイズを開始</button>
                 
                 <div style="margin-top: 30px; text-align: left;">
-                    <h3>📝 出題内容</h3>
+                    <h3>  出題内容</h3>
                     <ul style="margin: 15px 0; padding-left: 20px;">
                         <li>中野ブロードウェイとサブカルチャー</li>
                         <li>哲学堂公園と井上円了</li>
@@ -287,12 +287,12 @@
             
             <!-- 結果画面 -->
             <div class="result-screen" id="resultScreen">
-                <h2>🎉 クイズ完了！</h2>
+                <h2>  クイズ完了！</h2>
                 <div class="final-score" id="finalScore"></div>
                 <div class="score-message" id="scoreMessage"></div>
                 
                 <div style="margin: 30px 0; text-align: left;">
-                    <h3>📊 結果詳細</h3>
+                    <h3>  結果詳細</h3>
                     <p>正解数: <span id="finalCorrect"></span>問</p>
                     <p>不正解数: <span id="finalIncorrect"></span>問</p>
                     <p>正解率: <span id="accuracyRate"></span>%</p>
@@ -308,7 +308,7 @@
         const quizData = [
             {
                 question: "中野区の面積は約何平方キロメートルですか？",
-                options: ["12.59km²", "15.59km²", "18.59km²", "21.59km²"],
+                options: ["12.59km2", "15.59km2", "18.59km2", "21.59km2"],
                 correct: 1,
                 explanation: "中野区の面積は15.59平方キロメートルで、東京23区の中では14番目の大きさです。"
             },
@@ -400,7 +400,7 @@
                 question: "中野区の23区内での面積順位は何位ですか？",
                 options: ["12位", "14位", "16位", "18位"],
                 correct: 1,
-                explanation: "中野区の面積15.59km²は、東京23区の中で14番目の大きさです。"
+                explanation: "中野区の面積15.59km2は、東京23区の中で14番目の大きさです。"
             },
             {
                 question: "中野駅から中野四季の森公園までの徒歩時間は約何分ですか？",
@@ -634,7 +634,7 @@
                 question: "中野区の面積を最も近い東京ドームの個数で表すとどれくらいですか？",
                 options: ["約300個分", "約333個分", "約366個分", "約400個分"],
                 correct: 1,
-                explanation: "中野区の面積15.59km²は、東京ドーム約333個分に相当します。"
+                explanation: "中野区の面積15.59km2は、東京ドーム約333個分に相当します。"
             },
             {
                 question: "中野四季の森公園で開催される「やきいもフェス」の開催時期はいつですか？",
@@ -658,7 +658,7 @@
                 question: "中野区の人口密度は東京23区中何位ですか？",
                 options: ["1位", "2位", "3位", "4位"],
                 correct: 1,
-                explanation: "中野区の人口密度22,122人/km²は東京23区中2位で、豊島区に次ぐ高さです。"
+                explanation: "中野区の人口密度22,122人/km2は東京23区中2位で、豊島区に次ぐ高さです。"
             },
             {
                 question: "中野セントラルパークにあるコンベンション施設の名前は何ですか？",
@@ -988,15 +988,15 @@
             // 結果メッセージ
             let message = '';
             if (accuracy >= 90) {
-                message = '🏆 素晴らしい！中野区マスターですね！';
+                message = '  素晴らしい！中野区マスターですね！';
             } else if (accuracy >= 80) {
-                message = '🎖️ 優秀！中野区についてよく知っていますね！';
+                message = ' ? 優秀！中野区についてよく知っていますね！';
             } else if (accuracy >= 70) {
-                message = '👍 良くできました！中野区通ですね！';
+                message = '  良くできました！中野区通ですね！';
             } else if (accuracy >= 60) {
-                message = '📖 もう少し！中野区について学んでみませんか？';
+                message = '  もう少し！中野区について学んでみませんか？';
             } else {
-                message = '🌱 これから中野区を探索してみましょう！';
+                message = '  これから中野区を探索してみましょう！';
             }
             
             document.getElementById('scoreMessage').textContent = message;
